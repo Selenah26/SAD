@@ -36,8 +36,22 @@ Después de `./lab.sh comprobar`, mira `./lab.sh ver`. ¿Cuántos paquetes lleva
 En el firewall (`./lab.sh fw`): `tcpdump -ni wan host 198.51.100.62 -c 6`. Mientras, en otra terminal, el comercial
 (`./lab.sh comercial`) hace `curl http://172.16.10.20:8080`. Pega lo que sale en el firewall:
 
-```text
-(pega aquí la salida de tcpdump)
+```selena@selena-G5-GD:~/SAD/Practica1$ ./lab.sh fw 
+root@fw:/# tcpdump -ni wan host 198.51.100.62 -c 6
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on wan, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+22:55:15.417630 IP 198.51.100.62.44494 > 198.51.100.254.51820: UDP, length 96
+22:55:15.417781 IP 198.51.100.254.51820 > 198.51.100.62.44494: UDP, length 96
+22:55:15.417830 IP 198.51.100.62.44494 > 198.51.100.254.51820: UDP, length 96
+22:55:15.417846 IP 198.51.100.62.44494 > 198.51.100.254.51820: UDP, length 176
+22:55:15.417871 IP 198.51.100.254.51820 > 198.51.100.62.44494: UDP, length 96
+22:55:15.417964 IP 198.51.100.254.51820 > 198.51.100.62.44494: UDP, length 304
+6 packets captured
+10 packets received by filter
+0 packets dropped by kernel
+root@fw:/# exit
+exit
+
 ```
 
 En dos líneas: ¿qué se ve por la calle y qué NO se ve?
